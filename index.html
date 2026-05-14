@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruleta de grupos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="wheel-panel" aria-label="Ruleta de selección">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">Evaluación</p>
+            <h1>Ruleta de grupos</h1>
+          </div>
+          <div class="result" id="result">Preparada</div>
+        </div>
+
+        <div class="wheel-wrap">
+          <canvas id="wheel" width="760" height="760" aria-label="Ruleta"></canvas>
+          <div class="pointer" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls">
+          <button class="primary" id="spinButton" type="button">Iniciar</button>
+          <button id="hideWinnerButton" type="button">Ocultar seleccionado</button>
+          <button id="resetButton" type="button">Reiniciar</button>
+        </div>
+      </section>
+
+      <aside class="editor" aria-label="Editor de grupos">
+        <div class="editor-head">
+          <div>
+            <p class="eyebrow">Listado</p>
+            <h2>Editor de grupos</h2>
+          </div>
+          <button id="addGroupButton" type="button">Añadir grupo</button>
+        </div>
+
+        <div class="group-list" id="groupList"></div>
+
+        <form class="student-form" id="studentForm">
+          <label>
+            Grupo
+            <select id="groupSelect"></select>
+          </label>
+          <label>
+            Alumno
+            <input id="studentName" name="studentName" type="text" placeholder="Nombre del alumno" />
+          </label>
+          <button type="submit">Añadir alumno</button>
+        </form>
+      </aside>
+    </main>
+
+    <template id="groupTemplate">
+      <article class="group-card">
+        <div class="group-top">
+          <label class="group-toggle">
+            <input type="checkbox" class="group-enabled" />
+            <span class="group-name"></span>
+          </label>
+          <div class="group-actions">
+            <button class="move-group move-up" type="button" title="Subir grupo">↑</button>
+            <button class="move-group move-down" type="button" title="Bajar grupo">↓</button>
+            <button class="remove-group" type="button" title="Quitar grupo">×</button>
+          </div>
+        </div>
+        <ul class="student-list"></ul>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
